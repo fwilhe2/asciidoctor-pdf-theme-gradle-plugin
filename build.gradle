@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+
+    dependencies {
+        classpath 'nu.studer:gradle-plugindev-plugin:1.0.4'
+
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'maven-publish'
+apply plugin: 'nu.studer.plugindev'
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'com.github.fwilhe.asciidoctor_pdf_theme_gradle_plugin'
+            artifactId 'AsciidoctorThemePlugin'
+            version '1.0-SNAPSHOT'
+
+            from components.java
+        }
+    }
+}
+
+plugindev {
+    pluginId = 'com.github.fwilhe.asciidoctor-pdf-theme'
+    pluginImplementationClass 'com.github.fwilhe.asciidoctor_pdf_theme_gradle_plugin.AsciidoctorThemePlugin'
+}

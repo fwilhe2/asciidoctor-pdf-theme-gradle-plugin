@@ -1,0 +1,6 @@
+/.gradle/
+/.gradletasknamecache
+/build/
+/.idea/
+*.iml
+
