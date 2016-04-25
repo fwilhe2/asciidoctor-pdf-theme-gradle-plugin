@@ -23,6 +23,10 @@ class AsciidoctorThemePlugin implements Plugin<Project> {
 
             project.tasks.asciidoctor.property('attributes')['pdf-stylesdir'] = "${path}/${project.theme.name}/resources/themes/"
             project.tasks.asciidoctor.property('attributes')['pdf-style'] = project.theme.name
+
+            if (new File("${path}/${project.theme.name}/resources/fonts").isDirectory()) {
+                project.tasks.asciidoctor.property('attributes')['pdf-fontsdir'] = "${path}/${project.theme.name}/resources/fonts/"
+            }
         }
 
         project.tasks.asciidoctor.dependsOn project.tasks.getTheme
