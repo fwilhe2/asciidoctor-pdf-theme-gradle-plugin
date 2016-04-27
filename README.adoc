@@ -13,7 +13,21 @@ For more information on Asciidoctor PDF themes, please consult https://github.co
 ./gradlew publishToMavenLocal
 ----
 
-== Example Document using this Plugin
+== Usage
+
+This plugin requires the `org.asciidoctor.convert` and `org.asciidoctor:asciidoctorj-pdf` plugins.
+
+To configure the theme, you need to specify a git repository and a name.
+The name is what comes before the `-theme.yml` for your Asciidoctor PDF theme.
+
+----
+theme {
+    url = 'git@someserver:lorem/ipsum-theme.git'
+    name = 'ipsum'
+}
+----
+
+=== Example Document using this Plugin
 
 https://github.com/fwilhe/asciidoctor-pdf-theme-gradle-plugin-example[Here] is an example gradle project using this plugin.
 
