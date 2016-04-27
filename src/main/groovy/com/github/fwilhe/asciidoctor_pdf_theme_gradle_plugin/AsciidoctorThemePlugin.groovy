@@ -15,7 +15,7 @@ class AsciidoctorThemePlugin implements Plugin<Project> {
 
             if (new File("${path}/${project.theme.name}").isDirectory()) {
                 println "Theme is installed, updating."
-                "cd ${path}/${project.theme.name}; git pull; cd ..".execute()
+                "git -C ${path}/${project.theme.name} pull".execute()
             } else {
                 println "Theme not installed, getting it from remote."
                 "git clone ${project.theme.url} ${path}/${project.theme.name}".execute()
