@@ -33,5 +33,5 @@ publishing {
 
 plugindev {
     pluginId = 'com.github.fwilhe.asciidoctor-pdf-theme'
-    pluginImplementationClass 'com.github.fwilhe.asciidoctor_pdf_theme_gradle_plugin.AsciidoctorThemePlugin'
+    pluginImplementationClass = 'com.github.fwilhe.asciidoctor_pdf_theme_gradle_plugin.AsciidoctorThemePlugin'
 }
