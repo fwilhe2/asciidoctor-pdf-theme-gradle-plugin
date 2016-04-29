@@ -27,6 +27,10 @@ theme {
 }
 ----
 
+You may optionally specify `themeVersion`, which must be a git tag.
+If it is set, this tag will be checked out.
+Otherwise the `master` branch will be checked out.
+
 === Example Document using this Plugin
 
 https://github.com/fwilhe/asciidoctor-pdf-theme-gradle-plugin-example[Here] is an example gradle project using this plugin.

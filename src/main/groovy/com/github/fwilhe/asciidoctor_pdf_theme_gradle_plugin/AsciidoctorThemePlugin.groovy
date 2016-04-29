@@ -15,10 +15,15 @@ class AsciidoctorThemePlugin implements Plugin<Project> {
 
             if (new File("${path}/${project.theme.name}").isDirectory()) {
                 println "Theme is installed, updating."
+                "git -C ${path}/${project.theme.name} checkout master".execute()
                 "git -C ${path}/${project.theme.name} pull".execute()
             } else {
                 println "Theme not installed, getting it from remote."
                 "git clone ${project.theme.url} ${path}/${project.theme.name}".execute()
+            }
+
+            if (project.theme.themeVersion) {
+                "git -C ${path}/${project.theme.name} checkout ${project.theme.themeVersion}".execute()
             }
 
             project.tasks.asciidoctor.property('attributes')['pdf-stylesdir'] = "${path}/${project.theme.name}/resources/themes/"
