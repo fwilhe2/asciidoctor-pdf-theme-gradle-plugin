@@ -6,12 +6,12 @@ buildscript {
 
     dependencies {
         classpath 'nu.studer:gradle-plugindev-plugin:1.0.4'
-
+        classpath "com.gradle.publish:plugin-publish-plugin:0.9.4"
     }
 }
 
+apply plugin: "com.gradle.plugin-publish"
 apply plugin: 'groovy'
-apply plugin: 'maven-publish'
 apply plugin: 'nu.studer.plugindev'
 
 dependencies {
@@ -19,19 +19,37 @@ dependencies {
     compile localGroovy()
 }
 
+version = '1.0'
+group = 'com.github.fwilhe.asciidoctor_pdf_theme_gradle_plugin'
+
+plugindev {
+    pluginId = 'com.github.fwilhe.asciidoctor-pdf-theme'
+    pluginImplementationClass = 'com.github.fwilhe.asciidoctor_pdf_theme_gradle_plugin.AsciidoctorPdfThemePlugin'
+}
+
 publishing {
     publications {
         maven(MavenPublication) {
             groupId 'com.github.fwilhe.asciidoctor_pdf_theme_gradle_plugin'
-            artifactId 'AsciidoctorThemePlugin'
-            version '1.0-SNAPSHOT'
+            artifactId 'AsciidoctorPdfThemePlugin'
+            version 'latest'
 
             from components.java
         }
     }
 }
 
-plugindev {
-    pluginId = 'com.github.fwilhe.asciidoctor-pdf-theme'
-    pluginImplementationClass = 'com.github.fwilhe.asciidoctor_pdf_theme_gradle_plugin.AsciidoctorPdfThemePlugin'
+
+pluginBundle {
+    website = 'https://github.com/fwilhe/asciidoctor-pdf-theme-gradle-plugin'
+    vcsUrl = 'https://github.com/fwilhe/asciidoctor-pdf-theme-gradle-plugin'
+    description = 'Allows to get a Theme for Asciidoctor PDF from a remote Git Repository when building the PDF.'
+    tags = ['asciidoc', 'asciidoctor', 'pdf']
+
+    plugins {
+        AsciidoctorPdfThemePlugin {
+            id = 'com.github.fwilhe.asciidoctor-pdf-theme'
+            displayName = 'Gradle Plugin for downloading Asciidoctor PDF Themes'
+        }
+    }
 }
