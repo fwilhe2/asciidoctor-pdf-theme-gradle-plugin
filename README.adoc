@@ -1,3 +1,7 @@
+= Gradle Plugin for downloading Asciidoctor PDF Themes
+
+This Gradle plugin extends the https://github.com/asciidoctor/asciidoctor-gradle-plugin[asciidoctor-gradle-plugin].
+It clones a Git repository, which contains a theme for Asciidoctor PDF.
 
 == Example Theme
 
@@ -7,15 +11,11 @@ This means, that toplevel must be a directory `resources`.
 
 For more information on Asciidoctor PDF themes, please consult https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/theming-guide.adoc[Asciidoctor PDF Theming Guide].
 
-== Install
-
-----
-./gradlew publishToMavenLocal
-----
-
 == Usage
 
-This plugin requires the `org.asciidoctor.convert` and `org.asciidoctor:asciidoctorj-pdf` plugins.
+NOTE: This plugin requires the `org.asciidoctor.convert` and `org.asciidoctor:asciidoctorj-pdf` plugins.
+
+Apply this plugin. Its plugin id is `com.github.fwilhe.asciidoctor-pdf-theme`.
 
 To configure the theme, you need to specify a git repository and a name.
 The name is what comes before the `-theme.yml` for your Asciidoctor PDF theme.
@@ -35,3 +35,10 @@ Otherwise the `master` branch will be checked out.
 
 https://github.com/fwilhe/asciidoctor-pdf-theme-gradle-plugin-example[Here] is an example gradle project using this plugin.
 
+=== Development
+
+For testing purposes, the plugin can be installed locally using
+
+----
+./gradlew publishToMavenLocal
+----
