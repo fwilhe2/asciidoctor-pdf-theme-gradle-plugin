@@ -3,7 +3,7 @@ package com.github.fwilhe.asciidoctor_pdf_theme_gradle_plugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-class AsciidoctorThemePlugin implements Plugin<Project> {
+class AsciidoctorPdfThemePlugin implements Plugin<Project> {
     void apply(Project project) {
         project.apply(plugin: 'org.asciidoctor.convert')
 
