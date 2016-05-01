@@ -42,3 +42,13 @@ For testing purposes, the plugin can be installed locally using
 ----
 ./gradlew publishToMavenLocal
 ----
+
+==== Release
+
+* Update Changelog
+* Update version in `build.gradle`
+* Perform the release using Gradle
+
+----
+./gradlew release
+----
