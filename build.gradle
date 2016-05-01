@@ -1,3 +1,5 @@
+import org.ajoberstar.grgit.Grgit
+
 buildscript {
     repositories {
         jcenter()
@@ -7,6 +9,7 @@ buildscript {
     dependencies {
         classpath 'nu.studer:gradle-plugindev-plugin:1.0.4'
         classpath "com.gradle.publish:plugin-publish-plugin:0.9.4"
+        classpath 'org.ajoberstar:gradle-git:1.4.2'
     }
 }
 
@@ -17,6 +20,10 @@ apply plugin: 'nu.studer.plugindev'
 dependencies {
     compile gradleApi()
     compile localGroovy()
+}
+
+ext {
+    gitRepo = Grgit.open(dir: projectDir)
 }
 
 version = '1.0'
@@ -53,3 +60,23 @@ pluginBundle {
         }
     }
 }
+
+task createTag << {
+    gitRepo.tag.add {
+        name = version
+        message = "Release ${version}"
+    }
+}
+
+task pushTag {
+    dependsOn createTag
+    doLast {
+        gitRepo.push {
+            tags = true
+            remote = 'origin'
+        }
+    }
+    mustRunAfter publishPlugins
+}
+
+task release(dependsOn: [pushTag, publishPlugins])
