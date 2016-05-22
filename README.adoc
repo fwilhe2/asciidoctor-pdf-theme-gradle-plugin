@@ -43,6 +43,11 @@ For testing purposes, the plugin can be installed locally using
 ./gradlew publishToMavenLocal
 ----
 
+==== Versioning
+
+I try to follow the http://semver.org/[Semantic Versioning] strategy.
+This means, the version number can be read as `<BREAKING>.<FEATURE>.<FIX>`.
+
 ==== Release
 
 * Update Changelog
@@ -52,3 +57,4 @@ For testing purposes, the plugin can be installed locally using
 ----
 ./gradlew release
 ----
+
