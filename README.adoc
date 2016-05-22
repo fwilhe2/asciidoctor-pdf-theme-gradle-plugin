@@ -56,6 +56,14 @@ For testing purposes, the plugin can be installed locally using
 
 After installing locally, the version `latest` of this plugin can be used in your `build.gradle` file.
 
+==== Testing
+
+The tests can also be run using Gradle with the following command:
+
+----
+./gradlew test
+----
+
 ==== Versioning
 
 I try to follow the http://semver.org/[Semantic Versioning] strategy.
