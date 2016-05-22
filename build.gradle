@@ -20,6 +20,7 @@ apply plugin: 'nu.studer.plugindev'
 dependencies {
     compile gradleApi()
     compile localGroovy()
+    testCompile 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3'
 }
 
 ext {
