@@ -13,7 +13,7 @@ For more information on Asciidoctor PDF themes, please consult https://github.co
 
 == Usage
 
-NOTE: This plugin requires the `org.asciidoctor.convert` and `org.asciidoctor:asciidoctorj-pdf` plugins.
+NOTE: This plugin requires the https://github.com/asciidoctor/asciidoctor-gradle-plugin[asciidoctor-gradle-plugin] and https://github.com/asciidoctor/asciidoctorj[asciidoctorj-pdf].
 
 Apply this plugin. Its plugin id is `com.github.fwilhe.asciidoctor-pdf-theme`.
 
@@ -42,6 +42,8 @@ For testing purposes, the plugin can be installed locally using
 ----
 ./gradlew publishToMavenLocal
 ----
+
+After installing locally, the version `latest` of this plugin can be used in your `build.gradle` file.
 
 ==== Versioning
 
