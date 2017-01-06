@@ -3,7 +3,7 @@
 
 == Unreleased
 
-
+* Replace `<<` with `doLast` because it was deprecated in Gradle 3.2, cf https://docs.gradle.org/3.2/release-notes#the-left-shift-operator-on-the-task-interface
 
 == 1.0
 

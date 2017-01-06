@@ -63,7 +63,9 @@ pluginBundle {
     }
 }
 
-task createTag << {
+task createTag
+
+createTag.doLast {
     gitRepo.tag.add {
         name = version
         message = "Release ${version}"

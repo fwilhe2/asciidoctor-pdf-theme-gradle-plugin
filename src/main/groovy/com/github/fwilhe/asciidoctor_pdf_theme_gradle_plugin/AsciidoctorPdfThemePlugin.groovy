@@ -9,7 +9,7 @@ class AsciidoctorPdfThemePlugin implements Plugin<Project> {
 
         project.extensions.create("theme", AsciidoctorThemePluginExtension)
 
-        project.task('getTheme') << {
+        project.task('getTheme').doLast {
 
             def path = System.getProperty("java.io.tmpdir")
 
